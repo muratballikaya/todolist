@@ -31,7 +31,7 @@ public class UserServiceTest {
 	private EntityManager em;
 	
 
-//	@Test
+	@Test
 	public void saveAndRemove() {
 
 		User user = new User();
@@ -57,11 +57,14 @@ public class UserServiceTest {
 		user.setSurname("testSurname");
 		user.setMail("testMail");
 
+		// create a new user
 		User savedUser = userService.saveUser(user);
 		if(savedUser== null) assert(false);
 		
+		// get user
 		User userFetched= userService.getUser(savedUser.getUserName());
 		
+		// remove user that was inserted for test
 		userService.remmoveByUserName(savedUser.getUserName());
 		
 		assertNotNull(userFetched);
