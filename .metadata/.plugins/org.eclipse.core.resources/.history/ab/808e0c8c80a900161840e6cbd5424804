@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: #E2E2E2;">
+	<div class="container">
+
+
+		<div class="col-md-6 col-sm-6 col-xs-12" style="margin-left: 200px">
+			<div class="panel panel-info">
+				<div class="panel-heading">YENİ GÖREV</div>
+				<div class="panel-body">
+					<form action="#" th:action="@{/newTaskForm}" th:object="${task}"
+						method="post">
+						<div class="form-group">
+							<label> Görev Adı </label> <input type="text" th:field="*{name}"
+								class="form-control" />
+							<p class="help-block">Help text here.</p>
+						</div>
+						<div class="form-group">
+							<label> Açıklama </label>
+							<textarea th:field="*{description}" cols="40" rows="5"
+								class="form-control"></textarea>
+							<p class="help-block">Help text here.</p>
+						</div>
+
+						<input type="submit" class="btn btn-info"> </input>
+
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

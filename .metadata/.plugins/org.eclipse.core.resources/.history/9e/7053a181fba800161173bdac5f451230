@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+<title>To-Do List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div >
+     
+ 
+    <div class="container">
+      <div class="hero-unit">
+        <h1>Kayıt</h1>
+     
+     <form action="#" th:action="@{/processForm}" th:object="${user}" method="post">
+     
+ 		Ad : <input type="text" th:field="*{name}" /> <br/>
+ 		Soyad : <input type="text" th:field="*{surname}" /> <br/>
+ 		Mail Adresi : <input type="text" th:field="*{mail}" /> <br/>
+  		Kullanıcı Adı : <input type="text" th:field="*{userName}" /> <br/>
+  		Şifre : <input type="password" th:field="*{password}" /> <br/>
+  		Şifre Tekrar : <input type="password" th:field="*{name}" /> <br/>
+  		<input type="submit"   class="btn btn-large btn-success" > Kaydet </input> 
+	</form>
+     
+        <p>
+          Welcome to the Spring MVC Quickstart application!
+          Get started quickly by signing up.
+        </p>
+     
+      </div>
+    </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+package com.ballikaya.todolist.service.config;
+
+
+
+@Configuration
+@PropertySource("classpath:/data/hibernate.properties")
+public class JpaConfig {
+    
+    @Autowired private Environment env;
+    @Autowired private DataSource dataSource;
+    
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+
+        HibernateJpaVendorAdapter hibernateJpa = new HibernateJpaVendorAdapter();
+        hibernateJpa.setDatabasePlatform(env.getProperty("hibernate.dialect"));
+        hibernateJpa.setShowSql(env.getProperty("hibernate.show_sql", Boolean.class));
+        
+        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(dataSource);
+        emf.setPackagesToScan("com.lishman.springdata.jpa.domain");
+        emf.setJpaVendorAdapter(hibernateJpa);
+        emf.setJpaPropertyMap(Collections.singletonMap("javax.persistence.validation.mode", "none"));
+        return emf;
+    }
+    
+    @Bean
+    public JpaTransactionManager transactionManager() {
+        JpaTransactionManager txnMgr = new JpaTransactionManager();
+        txnMgr.setEntityManagerFactory(entityManagerFactory().getObject());
+        return txnMgr;
+    }
+
+}

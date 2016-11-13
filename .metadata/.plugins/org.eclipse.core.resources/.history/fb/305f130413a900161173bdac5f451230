@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+
+
+		<div class="container">
+			<div class="hero-unit">
+				<h1>Yeni Görev Ekle</h1>
+
+				<form action="#" th:action="@{/addNewForm}" th:object="${task}" method="post">
+					Görev Adı : <input type="text" th:field="*{name}" /> <br /> 
+					Açıklama : <input
+						type="text" th:field="*{surname}" /> 
+						 <br />
+						  <input
+						type="submit" class="btn btn-large btn-success"> </input>
+
+				</form>
+
+				<p>Welcome to the Spring MVC Quickstart application! Get started
+					quickly by signing up.</p>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

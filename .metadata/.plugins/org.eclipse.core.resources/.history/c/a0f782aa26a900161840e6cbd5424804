@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+
+
+		<div class="container">
+			<div class="hero-unit">
+				<h1>Giriş</h1>
+
+				<form action="#" th:action="@{/loginForm}" th:object="${user}" method="post">
+				 Kullanıcı Adı : <input
+						type="text" th:field="*{userName}" /> <label
+						th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Kullanıcı
+						adı hatası: </label> <br /> Şifre : <input type="password"
+						th:field="*{password}" />
+						
+							 <br /> <input
+						type="submit" class="btn btn-large btn-success"> </input>
+						<a href="/registration"  > Kayıt ol</a>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

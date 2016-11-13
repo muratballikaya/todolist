@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+
+
+		<div 	style="margin-left: auto; margin-right: auto; display: block; text-align: left; width: 500px;">
+			<div class="hero-unit">
+				<h1>TODO</h1>
+				<form action="#" th:action="@{/addForm}" th:object="${taskDh}"
+					method="post">
+					<input type="submit" class="btn btn-large btn-success"
+						value="Yeni Ekle"> </input>
+
+					<div>
+						<table>
+							<tr>
+								<td>AD</td>
+								<td>Açıklama</td>
+							</tr>
+							<tr th:each="item : *{taskList}">
+								<td th:text="${item.name}"></td>
+								<td th:text="${item.description}" style="width: 500px"></td>
+							</tr>
+						</table>
+					</div>
+
+
+				</form>
+			</div>
+			<br />
+
+		</div>
+	</div>
+</body>
+</html>

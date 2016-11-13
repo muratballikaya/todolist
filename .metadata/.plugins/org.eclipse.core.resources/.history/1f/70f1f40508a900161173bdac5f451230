@@ -1,0 +1,5 @@
+package com.ballikaya.todolist.pres.util;
+
+public class SecurityUtil {
+
+}

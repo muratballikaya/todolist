@@ -1,0 +1,49 @@
+package com.ballikaya.todolist.service.service.impl;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
+import java.util.Date;
+import java.util.Optional;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ballikaya.todolist.model.User;
+import com.ballikaya.todolist.service.repository.UserRepository;
+import com.ballikaya.todolist.service.service.UserService;
+
+@Service("userService")
+public class UserServiceImpl implements UserService {
+
+	private static final Logger logger = Logger.getLogger(UserServiceImpl.class);
+
+	@Autowired
+	UserRepository userRepository;
+
+	@Override
+	public User saveUser(User user) {
+		logger.debug("Saving user...");
+		user.setCreationDate(new Date());
+		user.setUpdateDate(new Date());
+		user.setDeleted(false);
+		user.setActive(true);
+		return userRepository.save(user);
+	}
+
+	@Override
+	public User getUser(String userName) {
+		logger.debug("Getting user : " + userName);
+		Optional<User> opUser = userRepository.findByUserName(userName);
+		if (opUser == null)
+			return null;
+		return opUser.get();
+	}
+
+	@Override
+	public void remmoveByUserName(String userName) {
+
+		logger.debug("Removing user by name : " + userName);
+		userRepository.removeByUserName(userName);
+	}
+}

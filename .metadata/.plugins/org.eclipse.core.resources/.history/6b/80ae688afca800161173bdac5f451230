@@ -1,0 +1,17 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.ballikaya.todolist.model.base.User;
+
+public class UserDataHolder extends User {
+
+	@NotNull
+	@Size(min=5, max=30)
+	@Override
+	public void setUserName(String userName) {
+		super.setUserName(userName);
+	}
+
+}

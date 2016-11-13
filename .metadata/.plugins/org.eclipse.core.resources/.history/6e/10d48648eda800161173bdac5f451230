@@ -1,0 +1,32 @@
+package com.ballikaya.todolist.model.base;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+
+@MappedSuperclass
+public abstract class BaseModel implements Serializable {
+
+	
+	@Id @GeneratedValue 
+	@Column(name="id")
+	Long Id;
+	
+	@Column(name="deleted")
+	private boolean deleted;
+	
+	@Column(name="active")
+	private boolean active ;
+
+	@Column(name="creationDate")
+	private Date creationDate;
+	
+	@Column(name= "updateDate")
+	private Date updateDate;
+	
+}

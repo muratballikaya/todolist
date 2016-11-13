@@ -1,0 +1,26 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+import com.ballikaya.todolist.model.base.User;
+
+public class UserDataHolder {
+
+	private User user;
+	private String rePassword;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getRePassword() {
+		return rePassword;
+	}
+
+	public void setRePassword(String rePassword) {
+		this.rePassword = rePassword;
+	}
+
+}

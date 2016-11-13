@@ -1,0 +1,18 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+import com.ballikaya.todolist.model.base.User;
+
+public class WorkDataHolder {
+
+	private User user;
+	
+	
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+}

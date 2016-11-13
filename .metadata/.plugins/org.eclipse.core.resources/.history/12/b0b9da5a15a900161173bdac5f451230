@@ -1,0 +1,36 @@
+package com.ballikaya.todolist.service.service.impl;
+
+import java.util.Date;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ballikaya.todolist.model.Task;
+import com.ballikaya.todolist.model.User;
+import com.ballikaya.todolist.service.repository.TaskRepository;
+import com.ballikaya.todolist.service.service.UserService;
+
+@Service("taskService")
+public class TaskServiceImpl implements UserService {
+
+	@Autowired
+	TaskRepository taskRepository;
+
+	@Override
+	public void saveUser(Task task) {
+		
+		user.setCreationDate(new Date());
+		user.setUpdateDate(new Date());
+		user.setDeleted(false);
+		user.setActive(true);
+		userRepository.save(user);
+	}
+
+	@Override
+	public User getUser(String userName) {
+		Optional<User> opUser= userRepository.findByUserName(userName);
+		if(opUser == null) return null;
+		return opUser.get();
+	}
+}

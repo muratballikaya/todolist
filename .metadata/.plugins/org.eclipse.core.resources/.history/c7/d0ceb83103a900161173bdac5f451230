@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+
+
+		<div class="container">
+			<div class="hero-unit">
+				<h1>Kayıt</h1>
+
+				<form action="#" th:action="@{/processForm}" th:object="${user}" method="post">
+					<table>
+						<tr>
+							<td>Kullanıcı Adı : <input type="text"
+								th:field="*{userName}" />  </td><td
+								th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Kullanıcı
+									adı hatası: 
+							</td>
+						</tr>
+						<tr>
+							<td>Şifre Tekrar : <input type="password"
+								th:field="*{rePassword}" /> </td><td
+								th:if="${#fields.hasErrors('rePassword')}"
+								th:errors="*{rePassword}">Şifre hatası 
+							</td>
+						</tr>
+						<tr>
+							<td><input type="submit" class="btn btn-large btn-success">
+								 </input > 
+								 
+								 </td>
+						</tr>
+
+					</table>
+
+				</form>
+
+				<p>Welcome to the Spring MVC Quickstart application! Get started
+					quickly by signing up.</p>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

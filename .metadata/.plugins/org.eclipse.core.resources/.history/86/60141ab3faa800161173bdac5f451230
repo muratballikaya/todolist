@@ -1,0 +1,37 @@
+package com.ballikaya.todolist.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ballikaya.todolist.model.base.User;
+import com.ballikaya.todolist.pres.dataholder.UserDataHolder;
+import com.ballikaya.todolist.service.service.UserService;
+
+@Controller
+public class Registration {
+
+	@Autowired
+	UserService userService;
+
+	@RequestMapping("/registration")
+	public String register(Model model) {
+
+		UserDataHolder userDataHolder = new UserDataHolder();
+		model.addAttribute("user", userDataHolder);
+		return "registration";
+	}
+
+	@PostMapping("/")
+	public String save(@ModelAttribute(value = "user") User userDh) {
+
+//		userService.saveUser(user);
+		
+
+		return "registration";
+	}
+
+}

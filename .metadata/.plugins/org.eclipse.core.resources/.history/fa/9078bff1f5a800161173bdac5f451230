@@ -1,0 +1,4 @@
+<head th:fragment="headerFragment">
+    <title th:include=":: #pageTitle">Layout Generic Title< /title>
+    <!-- metas, link and scripts -->
+</head>

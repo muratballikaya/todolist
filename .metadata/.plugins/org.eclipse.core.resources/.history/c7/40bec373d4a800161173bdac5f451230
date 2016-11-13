@@ -1,0 +1,5 @@
+package com.ballikaya.todolist.service.config;
+
+public class DataSourceConfig {
+
+}

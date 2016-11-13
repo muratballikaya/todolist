@@ -1,0 +1,5 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+public class UserDataHolder {
+
+}

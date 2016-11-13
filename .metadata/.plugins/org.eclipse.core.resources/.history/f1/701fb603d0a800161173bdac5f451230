@@ -1,0 +1,12 @@
+package com.ballikaya.todolist.service;
+
+import org.junit.runner.RunWith;
+import org.springframework.transaction.annotation.Transactional;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@Transactional
+@Slf4j
+public class UserServiceTest {
+
+}

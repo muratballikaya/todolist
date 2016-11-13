@@ -1,0 +1,72 @@
+package com.ballikaya.todolist.service.service.impl;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ballikaya.todolist.model.Task;
+import com.ballikaya.todolist.service.repository.TaskRepository;
+import com.ballikaya.todolist.service.service.TaskService;
+
+@Service("taskService")
+public class TaskServiceImpl implements TaskService {
+
+	private static final Logger logger = Logger.getLogger(TaskServiceImpl.class);
+
+	@Autowired
+	TaskRepository taskRepository;
+
+	@Override
+	public Task saveTask(Task task) {
+		logger.debug("Saving task");
+		task.setCreationDate(new Date());
+		task.setUpdateDate(new Date());
+		task.setDeleted(false);
+		task.setActive(true);
+		return taskRepository.save(task);
+	}
+
+	@Override
+	public Task getTaskById(Long id) {
+		logger.debug("Getting task by id " + id);
+		Optional<Task> opTask = taskRepository.findOne(id);
+		if (opTask == null)
+			return null;
+		return opTask.get();
+	}
+
+	@Override
+	public List<Task> getTaskByUserId(Long id) {
+		logger.debug("Getting task by id" + id);
+		Stream<Task> taskStr = taskRepository.findByUserId(id);
+		if (taskStr == null)
+			return null;
+
+		List<Task> taskList = taskStr.collect(Collectors.toList());
+		return taskList;
+	}
+	
+	@Override
+	public void markTaskAsDone(Task task){
+		task.setActive(false);
+		taskRepository.save(task);
+	}
+
+	@Override
+	public List<Task> getTaskList(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Long id) {
+		taskRepository.delete(id);
+		
+	}
+}

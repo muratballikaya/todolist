@@ -1,0 +1,5 @@
+package com.ballikaya.todolist.model;
+
+public class TASK {
+
+}

@@ -1,0 +1,9 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+public class LoginDataHolder {
+
+	private String userName;
+	
+	private String password;
+	
+}

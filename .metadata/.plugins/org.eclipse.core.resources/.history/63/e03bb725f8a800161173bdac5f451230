@@ -1,0 +1,10 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+import com.ballikaya.todolist.model.base.User;
+
+public class UserDataHolder {
+	
+	private User user;
+	private String rePassword;
+
+}

@@ -1,0 +1,31 @@
+package com.ballikaya.todolist.service.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+@Configuration
+@ComponentScan(basePackages = "com.ballikaya.todolist.service")
+public class BeanConfiguration {
+
+	@Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+ 
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setDatabase(Database.MYSQL);
+        vendorAdapter.setGenerateDdl(true);
+        vendorAdapter.setShowSql(true);
+ 
+        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        factory.setJpaVendorAdapter(vendorAdapter);
+        factory.setPackagesToScan(getClass().getPackage().getName());
+        factory.setDataSource(dataSource());
+        factory.setJpaProperties(jpaProperties());
+ 
+        return factory;
+    }
+	
+}

@@ -1,0 +1,42 @@
+package com.ballikaya.todolist.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.ballikaya.todolist.pres.dataholder.UserDataHolder;
+import com.ballikaya.todolist.service.service.UserService;
+
+@Controller
+public class Login extends WebMvcConfigurerAdapter  {
+
+	@Autowired
+	UserService userService;
+	
+	@RequestMapping(value="/registration", method=RequestMethod.GET)
+    public String showForm(UserDataHolder userDh,Model model) {
+		model.addAttribute("user", userDh);
+        return "registration";
+    }
+
+	@PostMapping(value="/")
+	public String save(@Valid UserDataHolder userDh,BindingResult bindingResult,Model model) {
+		model.addAttribute("user", userDh);
+		 if (bindingResult.hasErrors()) {
+	            return "registration";
+	        }
+		
+		 return "redirect:/login";
+		
+//	userService.saveUser(user);
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+import com.ballikaya.todolist.model.Task;
+
+
+public class TodoListDataHolder {
+
+	private List<Task> taskList;
+	
+}

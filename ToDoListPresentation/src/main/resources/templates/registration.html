@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+ <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: #E2E2E2;">
+
+	<div class="container">
+
+
+		<div class="col-md-6 col-sm-6 col-xs-12" style="margin-left:200px">
+			<div class="panel panel-info">
+				<div class="panel-heading">KAYIT</div>
+				<div class="panel-body">
+					<form action="#" th:action="@{/registrationForm}"
+						th:object="${user}" method="post">
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+							<p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+						</div>
+
+						<div class="form-group">
+							<label>Ad </label> <input type="text" th:field="*{name}"
+								class="form-control" />
+							<p class="help-block">En az 2 en fazla 30 karakter girilebilir.</p>
+						</div>
+						<div class="form-group">
+							<label>Soyad </label> <input type="text" th:field="*{surname}"
+								class="form-control" />
+							<p class="help-block">En az 2 en fazla 30 karakter girilebilir.</p>
+						</div>
+
+						<div class="form-group">
+							<label> Mail Adresi </label> <input type="text"
+								th:field="*{mail}" class="form-control" />
+							<p class="help-block">En az 2 en fazla 30 karakter girilebilir. Mail adres formatına uymalıdır.</p>
+						</div>
+
+
+						<div class="form-group">
+							<label> Kullanıcı Adı </label> <input type="text"
+								th:field="*{userName}" class="form-control" /> <label
+								th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Kullanıcı
+								adı hatası: </label>
+							<p class="help-block">En az 2 en fazla 30 karakter girilebilir.</p>
+						</div>
+
+						<div class="form-group">
+							<label> Şifre </label> <input type="password"
+								th:field="*{password}" class="form-control" />
+			<p class="help-block">En az 2 en fazla 30 karakter girilebilir.</p>
+						</div>
+
+						<div class="form-group">
+							<label> Şifre Tekrar </label> <input type="password"
+								th:field="*{rePassword}" class="form-control" /> <label
+								th:if="${#fields.hasErrors('rePassword')}"
+								th:errors="*{rePassword}">Şifre hatası </label>
+							<p class="help-block">En az 2 en fazla 30 karakter girilebilir. Ve şifreler eşleşmelidir.</p>
+						</div>
+						<input type="submit" class="btn btn-info" value="Kaydet"> </input>
+
+
+					</form>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

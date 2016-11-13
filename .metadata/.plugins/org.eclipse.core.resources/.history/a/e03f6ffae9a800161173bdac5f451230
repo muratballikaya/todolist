@@ -1,0 +1,12 @@
+package com.ballikaya.todolist.model.configuration;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@EntityScan(basePackages = "com.ballikaya.todolist.model")
+public class ModelConfiguration {
+	
+	
+
+}

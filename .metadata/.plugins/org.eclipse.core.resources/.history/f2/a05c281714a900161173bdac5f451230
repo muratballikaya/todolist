@@ -1,0 +1,15 @@
+package com.ballikaya.todolist.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.ballikaya.todolist.model.base.BaseModel;
+
+
+@Entity
+@Table(name = "TASK")
+public class Task extends BaseModel {
+
+	
+	
+}

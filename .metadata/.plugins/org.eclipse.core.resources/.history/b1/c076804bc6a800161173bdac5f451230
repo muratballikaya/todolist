@@ -1,0 +1,21 @@
+package com.ballikaya.todolist.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
+public class User extends BaseModel implements Serializable{
+
+	private Integer id;
+	private String userName;
+	private String password;
+	private String mail;
+	private Date birthDay;
+	
+	
+	
+}

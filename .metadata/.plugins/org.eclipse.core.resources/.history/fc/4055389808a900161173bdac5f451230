@@ -1,0 +1,9 @@
+package com.ballikaya.todolist.service.service;
+
+import com.ballikaya.todolist.model.base.User;
+
+public interface UserService {
+
+	public void saveUser(User user);
+
+}

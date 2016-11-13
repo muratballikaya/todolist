@@ -1,0 +1,40 @@
+package com.ballikaya.todolist.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+
+public class BaseModel implements Serializable {
+
+	
+	@Column(name="deleted")
+	private boolean deleted;
+	
+	@Column(name="active")
+	private boolean active ;
+
+	@Column(name="creationDate")
+	private Date creationDate;
+	
+	@Column(name= "updateDate")
+	private Date updateDate;
+
+	
+	public boolean isDeleted() {
+		return deleted;
+	}
+	
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+}

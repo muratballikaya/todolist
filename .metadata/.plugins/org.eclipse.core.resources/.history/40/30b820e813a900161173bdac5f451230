@@ -1,0 +1,9 @@
+package com.ballikaya.todolist.model;
+
+import com.ballikaya.todolist.model.base.BaseModel;
+
+public class Task extends BaseModel {
+
+	
+	
+}

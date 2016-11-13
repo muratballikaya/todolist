@@ -1,0 +1,7 @@
+package com.ballikaya.todolist.service.config;
+
+@Configuration
+@Import( {DataSourceConfig.class, JpaConfig.class, RepositoryConfig.class} )
+public class Config {
+    
+}

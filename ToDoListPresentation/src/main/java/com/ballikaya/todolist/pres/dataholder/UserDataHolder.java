@@ -1,0 +1,90 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import com.ballikaya.todolist.model.User;
+
+public class UserDataHolder   {
+
+	private static final String EMAIL_PATTERN =
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
+	@NotNull
+    @Size(min=2, max=30)
+	private String name;
+	
+	@NotNull
+    @Size(min=2, max=30)
+	private String surname;
+	
+	@NotNull
+    @Size(min=2, max=30)
+	private String userName;
+
+	@NotNull
+    @Size(min=2, max=30)
+	@Pattern(regexp=EMAIL_PATTERN)
+	private String mail;
+	
+	@NotNull
+    @Size(min=2, max=30)
+	private String password;
+	
+	@NotNull
+    @Size(min=2, max=30)
+	private String rePassword;
+	
+	public User getUser(){
+		return new User(name, surname, userName, password, mail);
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public String getRePassword() {
+		return rePassword;
+	}
+	
+	public void setRePassword(String rePassword) {
+		this.rePassword = rePassword;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	
+	public String getSurname() {
+		return surname;
+	}
+	
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+}

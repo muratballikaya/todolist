@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\murat\Documents\workspace-sts-3.8.2.RELEASE\ToDoListService"/>
+			<item value="C:\Users\murat\Documents\workspace-sts-3.8.2.RELEASE\ToDoList\pom.xml"/>
+			<item value="C:\Users\murat\Documents\workspace-sts-3.8.2.RELEASE\ToDoList"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="org.springframework.data.example.java8.spring_data_jpa_java8"/>
+			<item value="org.springframework.data.examples.spring_data_examples"/>
+			<item value="com.ballikaya.todolist.model.ToDoListModel"/>
+			<item value="com.ballikaya.todolist.parent.ToDoListParent"/>
+			<item value="com.ballikaya.todolist.service"/>
+			<item value="com.ballikaya.todolist.parent"/>
+		</list>
+		<list key="groupId">
+			<item value="org.springframework.data.example.java8"/>
+			<item value="org.springframework.data.examples"/>
+			<item value="com.ballikaya.todolist.model"/>
+			<item value="com.ballikaya.todolist.parent"/>
+			<item value="com.ballikaya.todolist.service"/>
+			<item value="ToDoListService"/>
+			<item value="ToDoListParent"/>
+		</list>
+		<list key="artifactId">
+			<item value="spring-data-jpa-java8"/>
+			<item value="spring-data-examples"/>
+			<item value="ToDoListModel"/>
+			<item value="ToDoListParent"/>
+			<item value="ToDoListService"/>
+			<item value="com.ballikaya.todolist.service"/>
+			<item value="com.ballikaya.todolist.parent"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="1.0.0-SNAPSHOT"/>
+			<item value="1.0.0.BUILD-SNAPSHOT"/>
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

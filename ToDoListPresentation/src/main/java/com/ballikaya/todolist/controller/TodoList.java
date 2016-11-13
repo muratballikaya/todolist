@@ -1,0 +1,84 @@
+package com.ballikaya.todolist.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.ballikaya.todolist.model.Task;
+import com.ballikaya.todolist.model.User;
+import com.ballikaya.todolist.pres.dataholder.TaskDataHolder;
+import com.ballikaya.todolist.pres.dataholder.TodoListDataHolder;
+import com.ballikaya.todolist.service.service.TaskService;
+
+@Controller
+public class TodoList {
+
+	private static final Logger logger = Logger.getLogger(TodoList.class);
+
+	@Autowired
+	TaskService taskService;
+
+	@RequestMapping(value = "/todolist", method = RequestMethod.GET)
+	public String showForm(TodoListDataHolder todoListDh, Model model, HttpSession session) {
+
+		logger.debug("Init TodoList....");
+
+		User user = getUser(session);
+
+		if (user == null)
+			return "redirect:/login";
+
+		List<Task> taskList = taskService.getTaskByUserId(user.getId());
+		todoListDh.setTaskList(taskList);
+
+		model.addAttribute("taskDh", todoListDh);
+		return "todolist";
+
+	}
+
+	@PostMapping(value = "/addForm")
+	public String addNew(@Valid TaskDataHolder taskDataHolder, BindingResult bindingResult, Model model) {
+		return "redirect:/addTask";
+	}
+
+	@PostMapping(value = "/listForm")
+	public String processDoneTask(@Valid TaskDataHolder taskDataHolder, BindingResult bindingResult, Model model) {
+		
+		taskService.markTaskAsDone(taskDataHolder.getTaskId());
+		
+		return "todolist";
+	}
+	
+	/**
+	 * Session üzerine eklenen User objesi kontrol edilir. Login olunmadıysa
+	 * login sayfasına yönlendirlir.
+	 * 
+	 * @param httpSession
+	 * @return
+	 */
+	private User getUser(HttpSession httpSession) {
+
+		Object o = httpSession.getAttribute("LOGGEDIN");
+		if (o == null){
+			logger.debug("No user session...");
+			return null;
+		}
+
+		if (o instanceof User) {
+			return (User) o;
+		}
+		return null;
+
+	}
+
+}

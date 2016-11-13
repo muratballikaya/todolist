@@ -1,0 +1,26 @@
+package com.ballikaya.todolist.model;
+
+import java.io.Serializable;
+
+public class BaseModel implements Serializable {
+
+	private boolean deleted;
+	private boolean active ;
+	
+	public boolean isDeleted() {
+		return deleted;
+	}
+	
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+}

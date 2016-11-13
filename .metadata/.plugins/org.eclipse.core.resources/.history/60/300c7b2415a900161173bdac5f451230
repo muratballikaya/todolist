@@ -1,0 +1,17 @@
+package com.ballikaya.todolist.service.service;
+
+import com.ballikaya.todolist.model.Task;
+import com.ballikaya.todolist.model.User;
+
+import antlr.collections.List;
+
+public interface TaskService {
+
+	public void saveTask(User user);
+
+	public java.util.List<Task> getTaskList(String userName);
+	
+	public Task getTaskById(Long id);
+	
+
+}

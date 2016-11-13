@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+
+ <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+
+			<div class="container">
+			 <div class="row ">
+			
+				<div
+					class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+
+					<div class="panel-body">
+						<form action="#" th:action="@{/loginForm}" th:object="${user}"
+							method="post">
+							<hr/>
+								<h5>Giriş</h5>
+								 <div class="form-group input-group">
+									<span class="input-group-addon"><i
+											class="fa fa-tag">Kullanıcı Adı :</i></span>
+									<input class="form-control" type="text"
+										th:field="*{userName}" /> </div>
+										 <div class="form-group input-group">
+									<span class="input-group-addon"><i
+											class="fa fa-tag">Şifre :</i></span>
+									<input type="password" class="form-control"
+										th:field="*{password}" /> </div>
+									<input type="submit" class="btn btn-primary">
+										</input> <a href="/registration" class="btn btn-primary > Kayıt ol</a>
+						</form>
+					</div>
+				</div>
+				</div>
+			</div>
+	</div>
+
+</body>
+</html>

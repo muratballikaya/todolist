@@ -1,0 +1,52 @@
+package com.ballikaya.todolist.controller;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.ballikaya.todolist.model.User;
+import com.ballikaya.todolist.pres.dataholder.TaskDataHolder;
+import com.ballikaya.todolist.pres.dataholder.UserDataHolder;
+import com.ballikaya.todolist.pres.util.SecurityUtil;
+import com.ballikaya.todolist.service.service.UserService;
+
+@Controller
+public class TodoList {
+
+	@Autowired
+	UserService userService;
+
+	@RequestMapping(value = "/todolist", method = RequestMethod.GET)
+	public String showForm(TaskDataHolder taskDh, Model model, HttpSession session) {
+
+		Object o = session.getAttribute("LOGGEDIN");
+		if (o == null)
+			return "login";
+
+		if (o instanceof User) {
+			taskDh.setUser((User) o);
+			model.addAttribute("taskDh", taskDh);
+			return "todolist";
+		}
+
+		return "todolist";
+	}
+
+	@PostMapping(value = "/addForm")
+	public String save(BindingResult bindingResult, Model model,
+			HttpSession httpSession) {
+		if (bindingResult.hasErrors()) {
+			return "addTask";
+		}
+		return "addTask";
+	}
+
+}

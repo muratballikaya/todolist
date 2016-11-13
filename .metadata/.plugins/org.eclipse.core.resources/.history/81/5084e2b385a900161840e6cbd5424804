@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+<!-- BOOTSTRAP STYLES-->
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+<!-- FONTAWESOME STYLES-->
+<link href="assets/css/font-awesome.css" rel="stylesheet" />
+<!-- GOOGLE FONTS-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css' />
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: #E2E2E2;">
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-info">
+
+					<div class="panel-heading">To-Do List</div>
+					<form action="#" th:action="@{/addForm}" method="post">
+
+						<input type="submit" class="btn btn-large btn-success"
+							value="Yeni Ekle"> </input>
+					</form>
+
+					<form action="#" th:action="@{/listForm}" th:object="${taskDh}"
+						method="post">
+
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-striped table-bordered table-hover">
+									<tr>
+										<th>AD</th>
+										<th>Açıklama</th>
+									</tr>
+									<tr th:each="item : *{taskList}">
+										<th th:text="${item.name}"></th>
+										<th th:text="${item.description}" style="width: 500px"></th>
+										<th><input type="submit"
+											class="btn btn-large btn-success" value="Tamamlandı">
+											</input></th>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<br />
+
+		</div>
+	</div>
+</body>
+</html>

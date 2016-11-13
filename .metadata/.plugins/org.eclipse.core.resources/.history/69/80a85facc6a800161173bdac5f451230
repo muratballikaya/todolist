@@ -1,0 +1,17 @@
+package com.ballikaya.todolist.service;
+
+import javax.persistence.Entity;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+	
+	@Entity
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

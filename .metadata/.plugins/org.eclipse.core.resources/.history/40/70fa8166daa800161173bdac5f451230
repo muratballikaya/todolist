@@ -1,0 +1,54 @@
+package com.ballikaya.todolist.service.repository;
+
+import java.util.Optional;
+import java.util.stream.Stream;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.RepositoryDefinition;
+
+import com.ballikaya.todolist.model.User;
+
+
+public interface UserRepository extends Repository<User, Long> {
+
+
+	/**
+	 * Special customization of {@link CrudRepository#findOne(java.io.Serializable)} to return a JDK 8 {@link Optional}.
+	 * 
+	 * @param id
+	 * @return
+	 */
+	Optional<User> findOne(Long id);
+
+	/**
+	 * Saves the given {@link Customer}.
+	 * 
+	 * @param customer
+	 * @return
+	 */
+	<S extends User> S save(S user);
+
+	/**
+	 * Sample method to derive a query from using JDK 8's {@link Optional} as return type.
+	 * 
+	 * @param lastname
+	 * @return
+	 */
+	Optional<User> findByUserName(String userName);
+
+	
+
+	/**
+	 * Sample method to demonstrate support for {@link Stream} as a return type with a custom query. The query is executed
+	 * in a streaming fashion which means that the method returns as soon as the first results are ready.
+	 * 
+	 * @return
+	 */
+	@Query("select c from User c")
+	Stream<User> streamAllUsers();
+
+
+	
+}

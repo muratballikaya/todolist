@@ -1,0 +1,44 @@
+package com.ballikaya.todolist.service;
+
+import java.util.Date;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ballikaya.todolist.model.User;
+import com.ballikaya.todolist.service.config.Config;
+import com.ballikaya.todolist.service.config.TestConfig;
+import com.ballikaya.todolist.service.repository.UserRepository;
+
+@ContextConfiguration(classes={Config.class, TestConfig.class})
+@Transactional
+@RunWith(SpringJUnit4ClassRunner.class)
+public class UserServiceTest {
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	
+	 @Autowired private JdbcTemplate jdbcTemplate; 
+	    @PersistenceContext private EntityManager em;
+	
+	@Test
+	public void saveOne(){
+		
+		User user= new User();
+		user.setUserName("testUserName");
+		user.setName("testName");
+		user.setSurname("testSurname");
+		user.setMail("testMail");
+		user.setBirthDay(new Date());
+		
+		
+		userRepository.save(user);
+		
+	}
+
+}

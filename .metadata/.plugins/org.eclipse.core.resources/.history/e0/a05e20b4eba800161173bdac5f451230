@@ -1,0 +1,48 @@
+package com.ballikaya.todolist.service.config;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.hibernate.boot.model.relational.Database;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+@Configuration
+public class DataSourceConfig {
+    
+    @Bean(destroyMethod="close")
+    public DataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/todolist");
+        dataSource.setUsername("root");
+        dataSource.setPassword("abcd_1234");
+        dataSource.setMaxActive(100);
+        dataSource.setMaxIdle(30);
+        dataSource.setMaxWait(20000);
+        return dataSource;
+    }
+ 
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
+        LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
+        lef.setDataSource(dataSource);
+        lef.setJpaVendorAdapter(jpaVendorAdapter);
+        lef.setPackagesToScan("com.ballikaya.todolist");
+        return lef;
+    }
+
+    @Bean
+    public JpaVendorAdapter jpaVendorAdapter() {
+        HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
+        hibernateJpaVendorAdapter.setShowSql(false);
+        hibernateJpaVendorAdapter.setGenerateDdl(true);
+        hibernateJpaVendorAdapter.setDatabase(org.springframework.orm.jpa.vendor.Database.MYSQL);
+        return hibernateJpaVendorAdapter;
+    }
+    
+    
+}

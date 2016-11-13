@@ -1,0 +1,29 @@
+package com.ballikaya.todolist.service.config;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+
+@Configuration
+@PropertySource("classpath:/properties/jdbc.properties")
+public class DataSourceConfig {
+    
+    @Bean(destroyMethod="close")
+    public DataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
+        dataSource.setUrl("jdbc:oracle:thin:@my_dev_server:1521:my_db");
+        dataSource.setUsername("murat");
+        dataSource.setPassword("pass");
+        dataSource.setMaxActive(100);
+        dataSource.setMaxIdle(30);
+        dataSource.setMaxWait(20000);
+        return dataSource;
+    }
+ 
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>To-Do List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+
+
+		<div
+			style="margin-left: auto; margin-right: auto; display: block; text-align: left; width: 500px;">
+			<div class="hero-unit">
+				<h1>Kayıt</h1>
+
+				<form action="#" th:action="@{/registrationForm}"
+					th:object="${user}" method="post">
+
+
+					<table>
+						<tr>
+							<td>Ad :</td>
+							<td><input type="text" th:field="*{name}" /></td>
+						</tr>
+						<tr>
+							<td>Soyad :</td>
+							<td><input type="text" th:field="*{surname}" /></td>
+						</tr>
+						<tr>
+							<td>Mail Adresi :</td>
+							<td><input type="text" th:field="*{mail}" /></td>
+						</tr>
+						<tr>
+							<td>Kullanıcı Adı :</td>
+							<td><input type="text" th:field="*{userName}" /> <label
+								th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Kullanıcı
+									adı hatası: </label></td>
+
+						</tr>
+						<tr>
+							<td>Şifre :</td>
+							<td><input type="password" th:field="*{password}" /></td>
+						<tr>
+							<td>Şifre Tekrar :</td>
+							<td><input type="password" th:field="*{rePassword}" /> <label
+								th:if="${#fields.hasErrors('rePassword')}"
+								th:errors="*{rePassword}">Şifre hatası </label></td>
+						</tr>
+						<tr>
+							<td><input type="submit" class="btn btn-large btn-success">
+								</input></td>
+						</tr>
+					</table>
+				</form>
+
+	
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

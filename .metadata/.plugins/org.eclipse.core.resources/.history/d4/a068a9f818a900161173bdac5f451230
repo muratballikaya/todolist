@@ -1,0 +1,25 @@
+package com.ballikaya.todolist.pres.dataholder;
+
+import com.ballikaya.todolist.model.Task;
+import com.ballikaya.todolist.model.User;
+
+public class TaskDataHolder {
+
+	private User user;
+	
+	private String name;
+	
+	private String description;
+	
+	public Task getTask(){
+		return new Task(this.name,this.description);
+	}
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+}

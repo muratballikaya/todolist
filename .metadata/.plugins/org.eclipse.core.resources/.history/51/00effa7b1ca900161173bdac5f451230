@@ -1,0 +1,5 @@
+package com.ballikaya.todolist.controller.base;
+
+public class Controller {
+
+}
